@@ -50,6 +50,6 @@ public:
 
 	void AddSnakeElement(int ElementsNum = 1);
 
-	virtual void Move(float DeltaTime);
+	virtual void Move();
 
 };
