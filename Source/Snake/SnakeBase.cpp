@@ -86,6 +86,8 @@ void ASnakeBase::Move()
 
 	SnakeElements[0] -> AddActorWorldOffset(MovementVector);
 	SnakeElements[0]->ToogleCollision();
+
+	isMove = false;
 }
 
 void ASnakeBase::SnakeElementOverlap(ASnakeElementBase* OverlappedBlock, AActor* Other)
