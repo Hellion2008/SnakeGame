@@ -36,6 +36,12 @@ void ASnakeBase::AddSnakeElement(int ElementsNum)
 	{
 		FVector NewLocation(SnakeElements.Num() * ElementSize, 0, 0);
 		FTransform NewTransform(NewLocation);
+		if (SnakeElements.Num() > ElementsNum)
+		{
+			auto LastElem = SnakeElements[SnakeElements.Num() - 1];
+			FVector LastElemLocation = LastElem->GetActorLocation();
+			NewTransform.SetLocation(LastElemLocation);
+		}
 		ASnakeElementBase* NewSnakeElem = GetWorld()->SpawnActor<ASnakeElementBase>(SnakeElementClass, NewTransform);
 		//NewSnakeElem->SetActorHiddenInGame(true);
 		NewSnakeElem->SnakeOwner = this;
